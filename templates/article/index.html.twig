@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+    {# initialise une varialbe   #}
+    {% set city = "Nantes" %}
+
+    {# affiche la valeur de la variable  #}
+    <p>{{ city }}</p>
+
+    {# teste la valeur  #}
+    {% if city == "Nantes" %}
+        <p>Condition remplie !</p>
+    {% else %}
+        <p>Ce n'est pas Nantes</p>
+    {% endif %}
+
+    {% set currentWeather = "sunny" %}
+    {% set currentTemperature = 22 %}
+    {% if currentWeather == "rainy" %}
+        <p>On regarde un film !</p>
+    {% elseif currentWeather == "snowy" %}
+        <p>Bataille de boules de neige !</p>
+    {% elseif currentWeather == "sunny" and currentTemperature > 20 %}
+        <p>Tous à la playa ! il fait {{ currentTemperature }} dégré !</p>
+    {% else %}
+        <p>Parfait pour une balade</p>
+    {% endif %}
+
+    {% set vegetables = ["carotte","tomate","patate"] %}
+    <h1>Produits : </h1>
+    <ul>
+        {%  for vegetable in vegetables %}
+            <li><p>{{ vegetable }}</p></li>
+        {% else %}
+            <li><p>Pas de legumes ici.</p></li>
+
+        {% endfor %}
+    </ul>
+    {%
+        set user = {
+        'name':'bingo',
+        'age':66,
+        'isActive':true
+    }
+    %}
+    <h2>{{ user.name }}</h2>
+    <dl>
+        {% for key, val in user %}
+            <dt>{{ key }}</dt><dd>{{ val }}</dd>
+        {% endfor %}
+    </dl>
+
+    <a aria-current="page" href="{{path("app_creat_person")}}"> Créer une personne</a>
+    
+</div>
+{% endblock %}

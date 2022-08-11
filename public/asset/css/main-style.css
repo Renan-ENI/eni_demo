@@ -1,0 +1,33 @@
+.enidemo-header{
+    background: #299ec4;
+    height: 70px;
+    margin: auto;
+}
+
+.enidemo-containt{
+    background: blanchedalmond;
+}
+
+.enidemo-footer{
+
+    background: #171313;
+    height: 130px;
+    text-align: center;
+    color: #bde8e8;
+}
+
+.enidemo-image-header{
+
+    width: 100%;
+}
+.enidemo-image-footer{
+    width: 10px;
+}
+
+@font-face {
+    font-family: 'FredokaOne';
+    src: url('../font/FredokaOne/FredokaOne-Regular.ttf') format('truetype');
+    font-weight : 400;
+    font-style: normal;
+}
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        {# favicon icone sur le nom de la page web       #}
+        <link rel="icon" type="image/x-icon" href="{{ asset('asset/image/favicon.png') }}">
+        {# google font link#}
+{#        <link rel="preconnect" href="https://fonts.googleapis.com">#}
+{#        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>#}
+{#        <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">#}
+
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {# CSS BOOTSTRAP #}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        {#fichier css projet#}
+        <link href="{{ asset('asset/css/main-style.css') }}" rel="stylesheet"/>
+
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body style="font-family: FredokaOne">
+
+        {#header#}
+        <div class="enidemo-header">
+            <nav class="navbar navbar-expand-lg navbar-dark primary-color" >
+                <a class="navbar-brand" href="#"><span class="sr-only" style="color: black">BUCKET-LIST</span></a>
+                <div style="width: 40px">
+                <img
+                     src="{{ asset('asset/image/logo.png') }}"
+                     alt="logo site" width="100%">
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: space-evenly">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                        {# fonction path twig = pointer sur la route associé à une url  #}
+                            <a class="nav-link active" aria-current="page" href="{{ path("app_home") }}#" style="font-size: large"> <span class="sr-only" style="color: black">Accueil</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="font-size: large" ><span class="sr-only" style="color: black">Autres</span></a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+
+
+        </div>
+        {#middle#}
+        <div class="enidemo-containt">
+            {% block body %}{% endblock %}
+        </div>
+        {#footer#}
+        <div class="enidemo-footer">
+
+               ©Bucket-List 2022
+
+        </div>
+
+
+    </body>
+</html>
